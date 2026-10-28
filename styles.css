@@ -1,13 +1,28 @@
 body {
-  color: pink;
+  font-family: sans-serif;
+  color: #2b2b2b;
 }
 
-p {
-  color: #360436;
-  font-size: 30px;
+h2 {
+  color: #1f3a5f;
 }
 
-.color {
-  color: #752463;
-  font-size: 12px;
+header nav ul li a {
+  color: #0b5ed7;
+}
+
+aside ul li a {
+  color: #198754;
+}
+
+footer ul li a {
+  color: #b02a37;
+}
+
+.btn-comprar {
+  color: #d63384;
+}
+
+.btn-destacado {
+  color: #fd1414;
 }
