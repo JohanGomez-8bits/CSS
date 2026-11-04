@@ -6,15 +6,40 @@ body {
 h2 {
   color: #1f3a5f;
 }
-
+header {
+  background-color: #7dc2f0;
+  background-image: url(apple.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 250px 80px;
+  margin: 20px;
+  border: 100px;
+}
 header nav ul li a {
   color: #0b5ed7;
+}
+
+main {
+  background-color: #5278f5;
+}
+
+article {
+  padding: 20px;
+  border: 15px;
+  margin: 15px;
+}
+
+aside {
+  background-color: #5043ca;
 }
 
 aside ul li a {
   color: #198754;
 }
 
+footer {
+  background-color: #6184e2;
+}
 footer ul li a {
   color: #b02a37;
 }
