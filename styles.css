@@ -1,53 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Redaction:ital,wght@0,400;0,700;1,400&display=swap");
+
+:root {
+  --color-cabeza-navegacion: rgb(255, 255, 255);
+  --font-size: 20px;
+  --color-primario: #afafaf;
+  --color-secundario: #d4d4d4;
+  --color-terceario: #eeeeee;
+  --color-cuaternario: #1f3a5f;
+  --color-base-cabeza: #7dc2f0;
+  --color-fuente: #2b2b2b;
+  --color-categorias: #217b81;
+  --color-boton-comprar: #48ac30;
+  --color-boton-destacado: rgb(60, 255, 0);
+  --color-links: #5c3ead;
+}
 body {
-  font-family: sans-serif;
-  color: #2b2b2b;
+  font-size: var(--font-size);
+  color: var(--color-fuente);
+  font-family: "Redaction", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 h2 {
-  color: #1f3a5f;
+  color: var(--color-cuaternario);
 }
 header {
-  background-color: #7dc2f0;
+  background-color: var(--color-base-cabeza);
   background-image: url(apple.jpg);
   background-size: cover;
   background-position: center;
   padding: 250px 80px;
   margin: 20px;
-  border: 100px;
 }
 header nav ul li a {
-  color: #0b5ed7;
+  color: var(--color-cabeza-navegacion);
 }
 
 main {
-  background-color: #5278f5;
+  background-color: var(--color-primario);
 }
 
 article {
   padding: 20px;
-  border: 15px;
   margin: 15px;
 }
 
 aside {
-  background-color: #5043ca;
+  background-color: var(--color-secundario);
 }
 
 aside ul li a {
-  color: #198754;
+  color: var(--color-categorias);
 }
 
 footer {
-  background-color: #6184e2;
+  background-color: var(--color-terceario);
 }
 footer ul li a {
-  color: #b02a37;
+  color: var(--color-links);
 }
 
 .btn-comprar {
-  color: #d63384;
+  color: var(--color-boton-comprar);
 }
 
 .btn-destacado {
-  color: #fd1414;
+  color: var(--color-boton-destacado);
 }

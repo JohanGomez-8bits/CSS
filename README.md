@@ -39,3 +39,39 @@ Porque sin esto el padding y el borde se suman al ancho que uno puso, y la caja 
 
 (3) Cómo se ven afectados los elementos hermanos cuando le aplicas un margen grande a uno de ellos:
 Los hermanos se mueven y se alejan, porque el margen empuja y crea un espacio vacío alrededor del elemento. Si le pongo un margin-bottom grande a uno, el que viene después baja. Además, en vertical los márgenes de dos hermanos pueden "colapsar", o sea que no se suman, sino que se queda el más grande.
+
+## Hallazgos: Centralización de Identidad Visual y Espaciado
+
+### 1. Variables declaradas
+
+Todo lo declaré en `:root`, al inicio de `styles.css`:
+
+**Colores**
+
+- `--color-cabeza-navegacion` (#ffffff): links del menú del header.
+- `--color-primario` (#afafaf): fondo del `main`.
+- `--color-secundario` (#d4d4d4): fondo del `aside`.
+- `--color-terceario` (#eeeeee): fondo del `footer`.
+- `--color-cuaternario` (#1f3a5f): títulos `h2`.
+- `--color-base-cabeza` (#7dc2f0): fondo del `header` si la imagen no carga.
+- `--color-fuente` (#2b2b2b): texto general.
+- `--color-categorias` (#217b81): links de categorías en el `aside`.
+- `--color-boton-comprar` (#48ac30): botón de comprar.
+- `--color-boton-destacado` (rgb(60, 255, 0)): botón destacado.
+- `--color-links` (#5c3ead): links del `footer`.
+
+**Tipografía**
+
+- `--font-size` (20px): tamaño de letra base del `body`.
+
+**Espaciados**
+
+- Todavía no declaré variables de espaciado: los `padding` y `margin` (como `20px` y `15px` en `article`) siguen escritos directo en cada selector.
+
+### 2. Ventaja de reutilizar medidas de margin y padding
+
+Si uso siempre las mismas medidas, la página se ve más pareja y ordenada. Además, cambio un solo valor y se actualiza todo, en vez de buscar selector por selector como me pasa ahora con el `20px`.
+
+### 3. Cómo `:root` previene colisiones visuales
+
+Al tener cada color en un solo lugar, evito usar dos tonos casi iguales sin darme cuenta. Todos los selectores toman el valor con `var(--nombre)`, así que no se contradicen cuando la hoja de estilos crece.
