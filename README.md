@@ -75,3 +75,18 @@ Si uso siempre las mismas medidas, la página se ve más pareja y ordenada. Adem
 ### 3. Cómo `:root` previene colisiones visuales
 
 Al tener cada color en un solo lugar, evito usar dos tonos casi iguales sin darme cuenta. Todos los selectores toman el valor con `var(--nombre)`, así que no se contradicen cuando la hoja de estilos crece.
+
+
+## Hallazgos: Pseudoclases y Pseudoelementos
+
+### 1. Diferencia entre pseudoclase y pseudoelemento
+
+Entendí que la pseudoclase es cuando el elemento cambia según lo que hace el usuario. Por ejemplo, `:hover` funciona cuando paso el cursor por encima, `:active` cuando dejo el clic presionado y `:focus` cuando llego a un enlace con la tecla Tab. El elemento sigue siendo el mismo, solo cambia cómo se ve. El pseudoelemento es distinto, porque crea algo nuevo desde el CSS. Con `::before` y `::after` hice la viñeta del menú, la rayita debajo de cada producto y la etiqueta "¡Oferta!", y ninguna de esas cosas está escrita en el HTML.
+
+### 2. Importancia de `:focus` en la accesibilidad
+
+No todas las personas usan mouse, algunas navegan solo con el teclado. Si la página no muestra dónde está el foco, se pierden y no saben en qué enlace están parados. Por eso le puse un contorno visible a los enlaces del `aside`. Además, el color lo saqué de una variable de `:root`, entonces si después cambio los colores de la página, el contorno cambia con ellos sin que yo tenga que hacer nada más.
+
+### 3. Por qué decorar con `::before` y `::after` y no con etiquetas vacías
+
+Si metiera etiquetas vacías en el HTML solo para que se vea bonito, lo llenaría de cosas que no tienen ningún contenido. Con los pseudoelementos el HTML queda limpio y con su significado, y todo lo de la decoración se queda en el CSS. Y si más adelante quiero cambiar la viñeta o quitar la insignia, solo toco una regla, en vez de buscar en las cuatro tarjetas una por una.
