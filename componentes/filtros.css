@@ -1,0 +1,37 @@
+.filtros {
+    float: left;
+    width: 20%;
+    padding: 20px 20px 900px 20px;
+    background-color: var(--color-secundario);
+}
+
+.filtros__title {
+    color: var(--color-cuaternario);
+}
+
+.filtros__list {
+    list-style: none;
+    padding: 0;
+}
+
+.filtros__link {
+    color: var(--color-categorias);
+    padding: var(--espaciado-enlace);
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.filtros__link::before {
+    content: "• ";
+}
+
+.filtros__link:hover {
+    background-color: var(--color-cuaternario);
+    color: var(--color-terceario);
+}
+
+.filtros__link:focus {
+    outline: 3px solid var(--color-foco);
+    outline-offset: 2px;
+}

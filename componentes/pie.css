@@ -1,0 +1,8 @@
+.footer {
+    clear: both;
+    background-color: var(--color-terceario);
+}
+
+.footer__link {
+    color: var(--color-links);
+}

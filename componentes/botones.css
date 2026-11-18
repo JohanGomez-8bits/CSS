@@ -1,0 +1,26 @@
+.btn {
+    display: inline-block;
+    padding: var(--espaciado-boton);
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.btn--comprar {
+    color: var(--color-boton-comprar);
+}
+
+.btn--destacado {
+    color: var(--color-boton-destacado);
+}
+
+.btn:hover {
+    background-color: var(--color-boton-hover);
+    color: var(--color-terceario);
+}
+
+.btn:active {
+    background-color: var(--color-boton-active);
+    transform: translateY(2px) scale(0.97);
+}

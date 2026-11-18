@@ -1,0 +1,12 @@
+.header {
+    background-color: var(--color-base-cabeza);
+    background-image: url(../fondo.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 250px 80px;
+    margin: 20px;
+}
+
+.header__link {
+    color: var(--color-cabeza-navegacion);
+}

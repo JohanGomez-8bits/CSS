@@ -1,0 +1,6 @@
+.catalogo {
+    float: right;
+    width: 70%;
+    margin-bottom: 20px;
+    background-color: var(--color-primario);
+}

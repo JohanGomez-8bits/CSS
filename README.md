@@ -90,3 +90,21 @@ No todas las personas usan mouse, algunas navegan solo con el teclado. Si la pá
 ### 3. Por qué decorar con `::before` y `::after` y no con etiquetas vacías
 
 Si metiera etiquetas vacías en el HTML solo para que se vea bonito, lo llenaría de cosas que no tienen ningún contenido. Con los pseudoelementos el HTML queda limpio y con su significado, y todo lo de la decoración se queda en el CSS. Y si más adelante quiero cambiar la viñeta o quitar la insignia, solo toco una regla, en vez de buscar en las cuatro tarjetas una por una.
+
+## Hallazgos: Arquitectura BEM y Modularidad
+
+### 1. Qué significa BEM y cómo se escribe
+
+BEM significa Bloque, Elemento y Modificador. Es una forma de ponerle nombre a las clases para que se entienda qué es cada cosa. Se escribe así: `bloque__elemento--modificador`.
+
+- **Bloque:** es el componente completo. Ejemplo: `.card`, que es la tarjeta del producto.
+- **Elemento:** es una parte del bloque y se une con dos guiones bajos. Ejemplo: `.card__title`, que es el título de la tarjeta.
+- **Modificador:** es una variación y se une con dos guiones medios. Ejemplo: `.card--destacado`, que es la tarjeta destacada.
+
+### 2. Por qué dividir el CSS en varios archivos ayuda a trabajar en equipo
+
+Si todo el CSS está en un solo archivo, es difícil encontrar las cosas. Además, si dos personas lo editan al mismo tiempo, en Git salen conflictos. Al dividirlo en archivos como `tarjeta.css`, `botones.css` y `filtros.css`, cada compañero puede trabajar en uno distinto sin dañar el trabajo del otro. También es más fácil encontrar los errores: si algo falla en los botones, solo reviso `botones.css`. El archivo `styles.css` junta todos los módulos con `@import`.
+
+### 3. Cómo BEM evita la guerra de especificidad
+
+Antes tenía selectores largos como `aside ul li a`, que pesa 4 puntos, y otros como `.btn-comprar`, que pesa 10. A veces una regla le ganaba a otra sin que yo quisiera. Con BEM cada elemento tiene su propia clase y todas las reglas pesan lo mismo, 10 puntos. Así ninguna le gana a otra por peso y solo importa el orden en que están escritas (la cascada). Por eso ya no necesito `!important` ni selectores largos. Los `:hover` y `:active` pesan 20 porque suman la clase más la pseudoclase, pero siguen dependiendo de una sola clase.

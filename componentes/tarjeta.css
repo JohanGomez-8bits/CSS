@@ -1,0 +1,28 @@
+.card {
+    padding: 20px;
+    margin: 15px;
+}
+
+.card::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin-top: 12px;
+    background-color: var(--color-cuaternario);
+}
+
+.card__title {
+    color: var(--color-cuaternario);
+}
+
+
+.card__title--oferta::after {
+    content: "¡Oferta!";
+    margin-left: 10px;
+    padding: 2px 8px;
+    font-size: 14px;
+    vertical-align: middle;
+    background-color: var(--color-oferta);
+    color: var(--color-terceario);
+}
