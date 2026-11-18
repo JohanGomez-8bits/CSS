@@ -17,8 +17,10 @@
     --color-boton-hover: #2e7d1e;
     --color-boton-active: #1f5a13;
     --color-oferta: #c92a2a;
-    --espaciado-enlace: 2px 8px;
+    --espaciado-enlace: 4px 8px;
     --espaciado-boton: 6px 14px;
+    --color-borde: #000000;
+    --margen-filtro: 8px 4px;
 }
 body {
     font-size: var(--font-size);
@@ -33,7 +35,7 @@ h2 {
 }
 header {
     background-color: var(--color-base-cabeza);
-    background-image: url(apple.jpg);
+    background-image: url(fondo.jpg);
     background-size: cover;
     background-position: center;
     padding: 250px 80px;
@@ -50,10 +52,13 @@ main {
 article {
     padding: 20px;
     margin: 15px;
+    border: var(--color-borde) solid;
 }
 
 aside {
     background-color: var(--color-secundario);
+    border: var(--color-borde) solid;
+    margin: 25px;
 }
 
 aside ul li a {
@@ -84,6 +89,7 @@ aside ul li a {
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
+    margin: var(--margen-filtro);
 }
 
 aside ul li a::before {
@@ -156,8 +162,4 @@ footer {
 
 aside h3 {
     color: var(--color-cuaternario);
-}
-
-aside ul {
-    padding: 0;
 }
