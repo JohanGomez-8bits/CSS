@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Redaction:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/redaction/400.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/redaction/700.css");
+@import url("https://cdn.jsdelivr.net/npm/@fontsource/redaction/400-italic.css");
 @import url("componentes/base.css");
 @import url("componentes/encabezado.css");
 @import url("componentes/catalogo.css");

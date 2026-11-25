@@ -1,7 +1,7 @@
 body {
     font-size: var(--font-size);
     color: var(--color-fuente);
-    font-family: "Redaction", serif;
+    font-family: "Redaction", "Times New Roman", Times, serif;
     font-optical-sizing: auto;
     font-style: normal;
 }

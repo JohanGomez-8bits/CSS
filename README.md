@@ -44,21 +44,26 @@ Los hermanos se mueven y se alejan, porque el margen empuja y crea un espacio va
 
 ### 1. Variables declaradas
 
-Todo lo declaré en `:root`, al inicio de `styles.css`:
+Todo lo declaré en `:root`, en `styles.css`, después de los `@import`:
 
 **Colores**
 
-- `--color-cabeza-navegacion` (#ffffff): links del menú del header.
-- `--color-primario` (#afafaf): fondo del `main`.
-- `--color-secundario` (#d4d4d4): fondo del `aside`.
-- `--color-terceario` (#eeeeee): fondo del `footer`.
-- `--color-cuaternario` (#1f3a5f): títulos `h2`.
-- `--color-base-cabeza` (#7dc2f0): fondo del `header` si la imagen no carga.
+- `--color-cabeza-navegacion` (rgb(255, 255, 255)): links del menú del header.
+- `--color-primario` (#f5f5f5): fondo del `.catalogo` (main).
+- `--color-secundario` (#f5f5f5df): fondo del `.filtros` (aside), con un poco de transparencia.
+- `--color-terceario` (#fafafa): fondo del `.footer` y de la tarjeta destacada; también el texto claro sobre fondos oscuros (hover de enlaces y botones, etiqueta "¡Oferta!").
+- `--color-cuaternario` (#1f3a5f): títulos `h2` (`.card__title` y `.filtros__title`), rayita de la tarjeta y fondo del hover en las categorías.
+- `--color-base-cabeza` (#7dc2f0): fondo del `.header` si la imagen no carga.
 - `--color-fuente` (#2b2b2b): texto general.
-- `--color-categorias` (#217b81): links de categorías en el `aside`.
+- `--color-categorias` (#217b81): links de categorías en `.filtros`.
 - `--color-boton-comprar` (#48ac30): botón de comprar.
-- `--color-boton-destacado` (rgb(60, 255, 0)): botón destacado.
-- `--color-links` (#5c3ead): links del `footer`.
+- `--color-boton-destacado` (hsl(106, 100%, 65%)): botón destacado.
+- `--color-boton-hover` (#2e7d1e): fondo del botón al pasar el cursor.
+- `--color-boton-active` (#1f5a13): fondo del botón al hacer clic.
+- `--color-links` (#5c3ead): links del `.footer`.
+- `--color-foco` (usa `--color-cuaternario`): contorno de `:focus` en las categorías.
+- `--color-oferta` (#c92a2a): etiqueta "¡Oferta!" y borde de la tarjeta destacada.
+- `--color-borde` (#000000): declarada, todavía no la uso en ningún componente.
 
 **Tipografía**
 
@@ -66,7 +71,10 @@ Todo lo declaré en `:root`, al inicio de `styles.css`:
 
 **Espaciados**
 
-- Todavía no declaré variables de espaciado: los `padding` y `margin` (como `20px` y `15px` en `article`) siguen escritos directo en cada selector.
+- `--espaciado-enlace` (4px 8px): padding de `.filtros__link`.
+- `--espaciado-boton` (6px 14px): padding de `.btn`.
+- `--margen-filtro` (8px 4px): declarada, todavía no la uso en ningún componente.
+- Los `padding` y `margin` de `.card` (`20px` y `15px`) siguen escritos directo en el selector.
 
 ### 2. Ventaja de reutilizar medidas de margin y padding
 

@@ -3,6 +3,11 @@
     margin: 15px;
 }
 
+.card--destacado {
+    border-left: 6px solid var(--color-oferta);
+    background-color: var(--color-terceario);
+}
+
 .card::after {
     content: "";
     display: block;
