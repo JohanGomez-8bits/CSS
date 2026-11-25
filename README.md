@@ -73,6 +73,8 @@ Todo lo declaré en `:root`, en `styles.css`, después de los `@import`:
 
 - `--espaciado-enlace` (4px 8px): padding de `.filtros__link`.
 - `--espaciado-boton` (6px 14px): padding de `.btn`.
+- `--espaciado-medio` (16px): separación (`gap`) entre los enlaces de `.nav__list` y entre el logo y el menú cuando el header se parte en dos líneas.
+- `--espaciado-grande` (32px): separación (`gap`) entre los bloques del `.filtros`.
 - `--margen-filtro` (8px 4px): declarada, todavía no la uso en ningún componente.
 - Los `padding` y `margin` de `.card` (`20px` y `15px`) siguen escritos directo en el selector.
 
@@ -116,3 +118,19 @@ Si todo el CSS está en un solo archivo, es difícil encontrar las cosas. Ademá
 ### 3. Cómo BEM evita la guerra de especificidad
 
 Antes tenía selectores largos como `aside ul li a`, que pesa 4 puntos, y otros como `.btn-comprar`, que pesa 10. A veces una regla le ganaba a otra sin que yo quisiera. Con BEM cada elemento tiene su propia clase y todas las reglas pesan lo mismo, 10 puntos. Así ninguna le gana a otra por peso y solo importa el orden en que están escritas (la cascada). Por eso ya no necesito `!important` ni selectores largos. Los `:hover` y `:active` pesan 20 porque suman la clase más la pseudoclase, pero siguen dependiendo de una sola clase.
+
+## Hallazgos: Arquitectura Total con Flexbox
+
+### 1. Por qué fue crucial `min-height: 100vh` y `flex-direction: column` en el contenedor global
+
+Antes el footer quedaba justo debajo del último contenido, y si la página tenía poco contenido se quedaba a mitad de la pantalla. Con `min-height: 100vh` el `.app-layout` mide como mínimo todo el alto de la ventana, y con `flex-direction: column` sus hijos (el header, el `.main-wrapper` y el footer) se apilan de arriba hacia abajo. Como el `.main-wrapper` tiene `flex: 1`, se queda con todo el espacio que sobra y empuja el footer hasta el fondo. Usé `min-height` y no `height` porque así la página puede seguir creciendo cuando hay más productos. También le quité el margen por defecto al `body`, porque con ese margen los 100vh sumaban un scroll de más.
+
+### 2. Cómo la propiedad `gap` reemplazó el uso excesivo de márgenes laterales en los menús
+
+Antes, para separar los enlaces tocaba ponerle `margin-left` o `margin-right` a cada uno, y el primero o el último quedaban con un espacio de sobra en el borde. Con `gap` en `.nav__list` el espacio queda solo entre un enlace y el siguiente, nunca en los extremos, y se define en un solo lugar con `var(--espaciado-medio)`. Lo mismo hice en `.filtros` con `var(--espaciado-grande)` para separar el título de la lista. Por eso en esos contenedores puse `margin: 0` a los hijos: así el único espacio es el del `gap`, y si lo quiero cambiar toco una sola variable.
+
+### 3. Cómo BEM, Custom Properties y Flexbox crean una tarjeta resistente a textos de distinto largo
+
+BEM me da una clase para cada parte de la tarjeta (`.card__desc`, `.card__price-wrapper`, `.card__button`), entonces cada una tiene su propio trabajo sin selectores largos. Las Custom Properties mantienen los colores y los espacios iguales en todas las tarjetas. Flexbox hace el resto: `.card` es una columna y `.card__desc` tiene `flex-grow: 1`, así que se estira y empuja el precio y el botón hacia abajo. Las tarjetas están dentro de `.catalogo__lista`, que es una fila que se parte en líneas con `flex-wrap`, y cada fila se estira sola (`align-items: stretch` por defecto), por eso las tarjetas de una misma fila miden igual y los botones quedan alineados abajo aunque una descripción sea más larga que otra. El precio usa `justify-content: space-between` y `align-items: baseline` para que el precio de oferta, más grande, y el precio original tachado queden sobre la misma línea de texto.
+
+Probé también `height: 100%` en `.card`, pero con el contenedor sin una altura definida esa propiedad impedía que la tarjeta se estirara y las tarjetas de una misma fila quedaban de alturas distintas. Sin esa propiedad quedan iguales, por eso no la dejé.

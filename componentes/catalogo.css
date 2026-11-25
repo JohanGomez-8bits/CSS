@@ -1,6 +1,10 @@
 .catalogo {
-    float: right;
-    width: 70%;
+    flex: 1;
     margin-bottom: 20px;
     background-color: var(--color-primario);
+}
+
+.catalogo__lista {
+    display: flex;
+    flex-wrap: wrap;
 }

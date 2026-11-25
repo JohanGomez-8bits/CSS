@@ -27,6 +27,8 @@
     --color-oferta: #c92a2a;
     --espaciado-enlace: 4px 8px;
     --espaciado-boton: 6px 14px;
+    --espaciado-medio: 16px;
+    --espaciado-grande: 32px;
     --color-borde: #000000;
     --margen-filtro: 8px 4px;
 }

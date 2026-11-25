@@ -1,4 +1,7 @@
 .card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 40%;
     padding: 20px;
     margin: 15px;
 }
@@ -21,7 +24,6 @@
     color: var(--color-cuaternario);
 }
 
-
 .card__title--oferta::after {
     content: "¡Oferta!";
     margin-left: 10px;
@@ -30,4 +32,28 @@
     vertical-align: middle;
     background-color: var(--color-oferta);
     color: var(--color-terceario);
+}
+
+.card__desc {
+    flex-grow: 1;
+}
+
+.card__price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.card__precio--oferta {
+    font-size: 1.6em;
+    font-weight: 700;
+}
+
+.card__precio--original {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.card__button {
+    align-self: flex-start;
 }

@@ -1,10 +1,31 @@
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--espaciado-medio);
     background-color: var(--color-base-cabeza);
     background-image: url(../fondo.jpg);
     background-size: cover;
     background-position: center;
     padding: 250px 80px;
     margin: 20px;
+}
+
+.header__logo {
+    color: var(--color-cabeza-navegacion);
+    font-size: 1.5em;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--espaciado-medio);
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .header__link {

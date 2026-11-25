@@ -1,5 +1,7 @@
 .footer {
-    clear: both;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: var(--color-terceario);
 }
 
